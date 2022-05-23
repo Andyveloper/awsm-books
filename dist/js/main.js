@@ -20,6 +20,9 @@ submitBtn.addEventListener('click', (event) => {
   removeButton.innerHTML = 'Remove';
   removeButton.classList.add('remove-button');
   removeButtons[bookCounter] = removeButton;
+  removeButtons[bookCounter].addEventListener('click', (event) => {
+    console.log('a');
+   });
   bookCounter++;
   listBook.appendChild(bookDiv);
   bookDiv.append(bookTitle, bookAuthor, removeButton);
@@ -27,12 +30,6 @@ submitBtn.addEventListener('click', (event) => {
   bookTitle.innerHTML = book.title;
   bookAuthor.innerHTML = book.author;
 });
-
-for (let i = 0; i < removeButtons.length; i++) {
-removeButtons[i].addEventListener('click', (event) => {
-  console.log('a');
- });
-};
 
 // when click on button
 // save title and author into object
