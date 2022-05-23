@@ -5,7 +5,6 @@ const author = document.querySelector('#book-author');
 const submitBtn = document.querySelector('#book-submit');
 const bookLibrary = [];
 const removeButtons = [];
-let bookCounter = 0;
 
 submitBtn.addEventListener('click', (event) => {
   let book = new Object();
@@ -19,17 +18,21 @@ submitBtn.addEventListener('click', (event) => {
   const removeButton = document.createElement('button');
   removeButton.innerHTML = 'Remove';
   removeButton.classList.add('remove-button');
-  removeButtons[bookCounter] = removeButton;
-  removeButtons[bookCounter].addEventListener('click', (event) => {
-    console.log('a');
-   });
-  bookCounter++;
+  removeBook(removeButton);
+  removeButtons.push(removeButton);
   listBook.appendChild(bookDiv);
   bookDiv.append(bookTitle, bookAuthor, removeButton);
   bookContainer.appendChild(listBook);
   bookTitle.innerHTML = book.title;
   bookAuthor.innerHTML = book.author;
 });
+
+function removeBook(button) {
+  button.addEventListener('click', (event) => {
+    console.log('a');
+   });
+};
+
 
 // when click on button
 // save title and author into object
