@@ -18,7 +18,7 @@ submitBtn.addEventListener('click', (event) => {
   const removeButton = document.createElement('button');
   removeButton.innerHTML = 'Remove';
   removeButton.classList.add('remove-button');
-  removeBook(removeButton);
+  // removeBook(removeButton);
   removeButtons.push(removeButton);
   listBook.appendChild(bookDiv);
   bookDiv.append(bookTitle, bookAuthor, removeButton);
@@ -27,13 +27,15 @@ submitBtn.addEventListener('click', (event) => {
   bookAuthor.innerHTML = book.author;
 });
 
-function removeBook(button) {
-  button.addEventListener('click', (event) => {
-    console.log('a');
-   });
-};
 
+const removeBook = () => {
+  const deleteButton = document.querySelectorAll['.remove-button'];
+  for (let i = 0; i < bookLibrary.length; i++) {
+    deleteButton[i].addEventListener('click', () => {
+      if (deleteButton[i] === bookLibrary[i]) {
+        console.log('a');
+      }
 
-// when click on button
-// save title and author into object
-// object must be in array
+    })
+  }
+}
