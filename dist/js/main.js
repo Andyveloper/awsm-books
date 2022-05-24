@@ -4,11 +4,14 @@ const form = document.querySelector('.add-book__add-form')
 const title = document.querySelector('#book-title');
 const author = document.querySelector('#book-author');
 const submitBtn = document.querySelector('#book-submit');
+const titleValue = title.value;
+const authorValue = author.value;
 let bookLibrary = [];
 
 // submit button function
 submitBtn.addEventListener('click', (event) => {
   createNewBookDiv(title.value, author.value);
+  storagedData();
 });
 
 function createNewBookDiv(title, author) {
@@ -35,6 +38,7 @@ function createNewBookDiv(title, author) {
   bookDiv.append(bookTitle, bookAuthor, removeButton);
   bookTitle.innerHTML = newBook.title;
   bookAuthor.innerHTML = newBook.author;
+  // populateData();
 }
 
 function removeBookDiv(button, index) {
@@ -48,3 +52,22 @@ function removeBookDiv(button, index) {
   }
 })
 }
+
+const storagedData = () => {
+  localStorage.setItem('data', JSON.stringify(bookLibrary))
+}
+
+const populateData = () => {
+  let whatever = JSON.parse(localStorage.getItem('data'));
+    // bookLibrary = saved;
+    for(let i = 0; i < bookLibrary.length; i++) {
+      createNewBookDiv(bookLibrary[i].title, bookLibrary[i].author)
+    }
+
+    
+}
+
+
+populateData();
+
+// storagedData();
