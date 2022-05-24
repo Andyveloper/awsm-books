@@ -3,22 +3,55 @@ const bookContainer = document.querySelector('.book-list__container');
 const title = document.querySelector('#book-title');
 const author = document.querySelector('#book-author');
 const submitBtn = document.querySelector('#book-submit');
-
 const bookLibrary = [];
 
+// PROJECT 2 // PROJECT 2// PROJECT 2// PROJECT 2// PROJECT 2
+// PROJECT 2 // PROJECT 2// PROJECT 2// PROJECT 2// PROJECT 2
+// PROJECT 2 // PROJECT 2// PROJECT 2// PROJECT 2// PROJECT 2
+class Book {
+  constructor (title, author, index) {
+    this.title = title;
+    this.author = author;
+    this.index = index;
+  }
+}
+
+class Library {
+  constructor (books = []) {
+    this.books = books;
+  }
+
+  add(book) {
+    this.books.push(book);
+  }
+
+  remove(index) {
+    this.books.splice(this.getBook(index), 1);
+  }
+
+  getBook(index) {
+    for (let i = 0; i < this.books.length; i ++) {
+      if (this.books[i].index === index) {
+        return i;
+      }
+    }
+    return -1;
+  }
+}
+const library = new Library();
+// PROJECT 2 // PROJECT 2// PROJECT 2// PROJECT 2// PROJECT 2
+// PROJECT 2 // PROJECT 2// PROJECT 2// PROJECT 2// PROJECT 2
+// PROJECT 2 // PROJECT 2// PROJECT 2// PROJECT 2// PROJECT 2
+
 const storagedData = () => {
-  localStorage.setItem('bookInfo', JSON.stringify(bookLibrary));
+  localStorage.setItem('bookInfo', JSON.stringify(library.books));
 };
 
 function removeBookDiv(button, index) {
   button.addEventListener('click', () => {
     const div = document.getElementById(`book${index}`);
     bookContainer.removeChild(div);
-    for (let i = 0; i < bookLibrary.length; i++) {
-      if (bookLibrary[i].index === index) {
-        bookLibrary.splice(i, 1);
-      }
-    }
+    library.remove(index);
     storagedData();
   });
 }
@@ -30,14 +63,11 @@ function createNewBookDiv(title, author) {
   const bookTitle = document.createElement('p');
   const bookAuthor = document.createElement('p');
   const removeButton = document.createElement('button');
-  const newBook = {};
   // creating new book
-  newBook.title = title;
-  newBook.author = author;
-  newBook.index = Date.now();
-  listBook.setAttribute('id', `book${newBook.index}`);
-  bookLibrary.push(newBook);
+  const newBook = new Book(title, author, Date.now());
+  library.add(newBook);
   // settings html elements
+  listBook.setAttribute('id', `book${newBook.index}`);
   removeButton.innerHTML = 'Remove';
   removeButton.classList.add('remove-button');
   removeButton.setAttribute('id', `button${newBook.index}`);
@@ -59,10 +89,9 @@ const populateData = () => {
   const getBookInfo = JSON.parse(localStorage.getItem('bookInfo'));
   if (getBookInfo) {
     for (let i = 0; i < getBookInfo.length; i++) {
-      bookLibrary[i] = getBookInfo[i];
-      createNewBookDiv(bookLibrary[i].title, bookLibrary[i].author);
+      library.books[i] = getBookInfo[i];
+      createNewBookDiv(library.books[i].title, library.books[i].author);
     }
   }
 };
-
 populateData();
