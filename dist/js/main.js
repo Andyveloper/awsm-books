@@ -5,9 +5,8 @@ const author = document.querySelector('#book-author');
 const submitBtn = document.querySelector('#book-submit');
 const bookLibrary = [];
 
-// PROJECT 2 // PROJECT 2// PROJECT 2// PROJECT 2// PROJECT 2
-// PROJECT 2 // PROJECT 2// PROJECT 2// PROJECT 2// PROJECT 2
-// PROJECT 2 // PROJECT 2// PROJECT 2// PROJECT 2// PROJECT 2
+// =======================================================
+// Project 2
 class Book {
   constructor (title, author, index) {
     this.title = title;
@@ -39,9 +38,9 @@ class Library {
   }
 }
 const library = new Library();
-// PROJECT 2 // PROJECT 2// PROJECT 2// PROJECT 2// PROJECT 2
-// PROJECT 2 // PROJECT 2// PROJECT 2// PROJECT 2// PROJECT 2
-// PROJECT 2 // PROJECT 2// PROJECT 2// PROJECT 2// PROJECT 2
+
+// =========================================================
+
 
 const storagedData = () => {
   localStorage.setItem('bookInfo', JSON.stringify(library.books));
@@ -95,3 +94,5 @@ const populateData = () => {
   }
 };
 populateData();
+
+library.books.splice(0, 1)
