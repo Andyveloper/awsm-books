@@ -1,12 +1,10 @@
-// getting html elements
+// Getting html elements
 const bookContainer = document.querySelector('.book-list__container');
 const title = document.querySelector('#book-title');
 const author = document.querySelector('#book-author');
 const submitBtn = document.querySelector('#book-submit');
-const bookLibrary = [];
 
-// =======================================================
-// Project 2
+// Creating book and library classes
 class Book {
   constructor (title, author, index) {
     this.title = title;
@@ -39,13 +37,12 @@ class Library {
 }
 const library = new Library();
 
-// =========================================================
-
-
+// Store data
 const storagedData = () => {
   localStorage.setItem('bookInfo', JSON.stringify(library.books));
 };
 
+// Remove the book from the library and the book div from the page
 function removeBookDiv(button, index) {
   button.addEventListener('click', () => {
     const div = document.getElementById(`book${index}`);
@@ -55,6 +52,7 @@ function removeBookDiv(button, index) {
   });
 }
 
+// Create a new book and book div
 function createNewBookDiv(title, author) {
   // creating html elements
   const listBook = document.createElement('li');
@@ -84,6 +82,7 @@ submitBtn.addEventListener('click', () => {
   storagedData();
 });
 
+// Populate data when page is loaded
 const populateData = () => {
   const getBookInfo = JSON.parse(localStorage.getItem('bookInfo'));
   if (getBookInfo) {
@@ -94,5 +93,4 @@ const populateData = () => {
   }
 };
 populateData();
-
 library.books.splice(0, 1)
