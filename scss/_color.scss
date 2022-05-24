@@ -3,11 +3,11 @@ $primary-color-dark: #0a0027;
 $secondary-color: #75707b;
 $white: #fff;
 
-
 @function set-text-color($color) {
   @if (lightness($color)) > 40% {
     @return $primary-color-dark;
   }
+
   @else {
     @return $white;
   }

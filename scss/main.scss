@@ -11,28 +11,35 @@
   background-color: $white;
   position: fixed;
   width: 100%;
+
   @include unhover;
+
   .hero__title {
     @include flex-column;
+
     width: 100%;
     padding: 2rem;
     font-family: 'Lato-regular';
     color: $secondary-color;
     font-size: 3rem;
+
     @include for-laptop {
-      padding: 1rem
+      padding: 1rem;
     }
+
     @include unhover;
+
     &:hover {
       @include hover-transition;
     }
   }
 }
 
-
 body {
   background: url(../img/marcel-strauss-Mw2QQYHu-4-unsplash.jpg);
+
   @include responsive-bg;
-  background-color: transparentize($color: $secondary-color, $amount: 0.5) ;
+
+  background-color: transparentize($color: $secondary-color, $amount: 0.5);
   background-blend-mode: soft-light;
 }
