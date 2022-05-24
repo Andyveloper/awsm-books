@@ -29,3 +29,18 @@
 @mixin unhover {
   transition: all 0.2s ease;
 }
+
+@mixin divider {
+  border: 3px solid $primary-color-dark;
+  width: 30rem;
+  margin: 1rem auto 3rem auto;
+  border-radius: 3px;
+}
+
+@mixin button-std {
+  padding: 9px;
+  align-items: center;
+  background-color: $white;
+  border: none;
+  border-radius: 0.5rem;
+}

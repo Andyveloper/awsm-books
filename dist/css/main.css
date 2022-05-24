@@ -112,6 +112,83 @@ li {
   src: url(../fonts/Lato/lato-v23-latin-700.woff2);
 }
 
+.divider {
+  border: 3px solid #0a0027;
+  width: 30rem;
+  margin: 1rem auto 3rem auto;
+  border-radius: 3px;
+}
+
+.add-book__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 2rem;
+  font-family: 'Lato-regular';
+  color: #fff;
+  font-size: 3rem;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  text-shadow: 1px 2px 2px black;
+}
+
+.add-book__title:hover {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  color: #0a0027;
+}
+
+.add-book__add-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 20%;
+}
+
+.add-book__add-form input {
+  width: 30rem;
+  height: 2rem;
+  padding: 1rem;
+  margin: 0.5rem;
+}
+
+.add-book__add-form input:focus {
+  border: 3px solid;
+  border-color: #410275;
+}
+
+.add-book__add-form #book-submit {
+  padding: 9px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
 .hero {
   padding: auto;
   background-color: #fff;

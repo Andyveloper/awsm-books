@@ -38,11 +38,7 @@
           align-items: center;
           margin: 0 1rem;
           .remove-button {
-            padding: 9px;
-            align-items: center;
-            background-color: $white;
-            border: none;
-            border-radius: 0.5rem;
+            @include button-std;
           }
         }
       }
