@@ -78,8 +78,8 @@ li {
   margin-right: auto;
 }
 
-.book-list__container li .book-content p {
-  margin: 0 1rem;
+.book-list__container li .book-content .book-list__title {
+  margin: 0 0.5rem 0 1rem;
 }
 
 .book-list__container li .btn-div {

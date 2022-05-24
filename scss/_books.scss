@@ -29,8 +29,8 @@
         align-items: center;
         color: set-text-color($primary-color);
         margin-right: auto;
-        p {
-          margin: 0 1rem;
+        .book-list__title {
+          margin: 0 0.5rem 0 1rem;
         }
         }  
         .btn-div {
