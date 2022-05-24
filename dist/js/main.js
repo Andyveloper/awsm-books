@@ -5,16 +5,8 @@ const author = document.querySelector('#book-author');
 const submitBtn = document.querySelector('#book-submit');
 
 // Creating book and library classes
-class Book {
-  constructor (title, author, index) {
-    this.title = title;
-    this.author = author;
-    this.index = index;
-  }
-}
-
 class Library {
-  constructor (books = []) {
+  constructor(books = []) {
     this.books = books;
   }
 
@@ -27,8 +19,8 @@ class Library {
   }
 
   getBook(index) {
-    for (let i = 0; i < this.books.length; i ++) {
-      if (this.books[i].index === index) {
+    for (let i = 0; i < this.books.length; i += 1) {
+      if (Number(this.books[i].index) === Number(index)) {
         return i;
       }
     }
@@ -62,7 +54,10 @@ function createNewBookDiv(title, author) {
   const bookAuthor = document.createElement('p');
   const removeButton = document.createElement('button');
   // creating new book
-  const newBook = new Book(title, author, Date.now());
+  const newBook = {};
+  newBook.title = title;
+  newBook.author = author;
+  newBook.index = Date.now();
   library.add(newBook);
   // settings html elements
   listBook.setAttribute('id', `book${newBook.index}`);
@@ -73,10 +68,10 @@ function createNewBookDiv(title, author) {
   bookContainer.appendChild(listBook);
   listBook.append(bookContentDiv, bookDiv);
   bookContentDiv.append(bookTitle, bookAuthor);
-  bookContentDiv.classList.add('book-content')
+  bookContentDiv.classList.add('book-content');
   bookDiv.append(removeButton);
   bookTitle.classList.add('book-list__title');
-  bookDiv.classList.add('btn-div')
+  bookDiv.classList.add('btn-div');
   bookTitle.innerHTML = newBook.title;
   bookAuthor.innerHTML = newBook.author;
 }
@@ -91,11 +86,10 @@ submitBtn.addEventListener('click', () => {
 const populateData = () => {
   const getBookInfo = JSON.parse(localStorage.getItem('bookInfo'));
   if (getBookInfo) {
-    for (let i = 0; i < getBookInfo.length; i++) {
+    for (let i = 0; i < getBookInfo.length; i += 1) {
       library.books[i] = getBookInfo[i];
       createNewBookDiv(library.books[i].title, library.books[i].author);
     }
   }
 };
 populateData();
-library.books.splice(0, 1)
