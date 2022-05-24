@@ -221,6 +221,12 @@ li {
   transition: all 0.2s ease;
 }
 
+@media (max-width: 1280px) {
+  .hero .hero__title {
+    padding: 1rem;
+  }
+}
+
 .hero .hero__title:hover {
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;

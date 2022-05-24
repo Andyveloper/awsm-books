@@ -4,6 +4,7 @@
 @import 'mixins';
 @import 'fonts';
 @import 'add-book';
+@import 'breakpoints';
 
 .hero {
   padding: auto;
@@ -18,6 +19,9 @@
     font-family: 'Lato-regular';
     color: $secondary-color;
     font-size: 3rem;
+    @include for-laptop {
+      padding: 1rem
+    }
     @include unhover;
     &:hover {
       @include hover-transition;

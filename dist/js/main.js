@@ -75,6 +75,7 @@ function createNewBookDiv(title, author) {
   bookContentDiv.append(bookTitle, bookAuthor);
   bookContentDiv.classList.add('book-content')
   bookDiv.append(removeButton);
+  bookTitle.classList.add('book-list__title');
   bookDiv.classList.add('btn-div')
   bookTitle.innerHTML = newBook.title;
   bookAuthor.innerHTML = newBook.author;
