@@ -57,6 +57,7 @@ function createNewBookDiv(title, author) {
   // creating html elements
   const listBook = document.createElement('li');
   const bookDiv = document.createElement('div');
+  const bookContentDiv = document.createElement('div');
   const bookTitle = document.createElement('p');
   const bookAuthor = document.createElement('p');
   const removeButton = document.createElement('button');
@@ -70,8 +71,11 @@ function createNewBookDiv(title, author) {
   removeButton.setAttribute('id', `button${newBook.index}`);
   removeBookDiv(removeButton, newBook.index);
   bookContainer.appendChild(listBook);
-  listBook.appendChild(bookDiv);
-  bookDiv.append(bookTitle, bookAuthor, removeButton);
+  listBook.append(bookContentDiv, bookDiv);
+  bookContentDiv.append(bookTitle, bookAuthor);
+  bookContentDiv.classList.add('book-content')
+  bookDiv.append(removeButton);
+  bookDiv.classList.add('btn-div')
   bookTitle.innerHTML = newBook.title;
   bookAuthor.innerHTML = newBook.author;
 }
