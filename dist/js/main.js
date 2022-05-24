@@ -1,18 +1,27 @@
 // getting html elements
 const bookContainer = document.querySelector('.book-list__container');
-const form = document.querySelector('.add-book__add-form')
 const title = document.querySelector('#book-title');
 const author = document.querySelector('#book-author');
 const submitBtn = document.querySelector('#book-submit');
-const titleValue = title.value;
-const authorValue = author.value;
-let bookLibrary = [];
 
-// submit button function
-submitBtn.addEventListener('click', (event) => {
-  createNewBookDiv(title.value, author.value);
-  storagedData();
-});
+const bookLibrary = [];
+
+const storagedData = () => {
+  localStorage.setItem('bookInfo', JSON.stringify(bookLibrary));
+};
+
+function removeBookDiv(button, index) {
+  button.addEventListener('click', () => {
+    const div = document.getElementById(`book${index}`);
+    bookContainer.removeChild(div);
+    for (let i = 0; i < bookLibrary.length; i++) {
+      if (bookLibrary[i].index === index) {
+        bookLibrary.splice(i, 1);
+      }
+    }
+    storagedData();
+  });
+}
 
 function createNewBookDiv(title, author) {
   // creating html elements
@@ -21,7 +30,7 @@ function createNewBookDiv(title, author) {
   const bookTitle = document.createElement('p');
   const bookAuthor = document.createElement('p');
   const removeButton = document.createElement('button');
-  const newBook = new Object;
+  const newBook = {};
   // creating new book
   newBook.title = title;
   newBook.author = author;
@@ -40,30 +49,20 @@ function createNewBookDiv(title, author) {
   bookAuthor.innerHTML = newBook.author;
 }
 
-function removeBookDiv(button, index) {
-  button.addEventListener ('click', (event) => {
-  const div = document.getElementById(`book${index}`);
-  bookContainer.removeChild(div);
-  for (let i = 0; i < bookLibrary.length; i++) {
-    if (bookLibrary[i].index === `button${index}`) {
-      bookLibrary.splice(i,1);
-    }
-  }
-})
-}
-
-const storagedData = () => {
-  localStorage.setItem('bookInfo', JSON.stringify(bookLibrary))
-}
+// submit button function
+submitBtn.addEventListener('click', () => {
+  createNewBookDiv(title.value, author.value);
+  storagedData();
+});
 
 const populateData = () => {
   const getBookInfo = JSON.parse(localStorage.getItem('bookInfo'));
   if (getBookInfo) {
-  for (let i = 0; i < getBookInfo.length; i++) {
-    bookLibrary[i] = getBookInfo[i];
-    createNewBookDiv(bookLibrary[i].title, bookLibrary[i].author);
+    for (let i = 0; i < getBookInfo.length; i++) {
+      bookLibrary[i] = getBookInfo[i];
+      createNewBookDiv(bookLibrary[i].title, bookLibrary[i].author);
+    }
   }
-}
-}
+};
 
 populateData();
