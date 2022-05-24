@@ -29,7 +29,7 @@ function createNewBookDiv(title, author) {
   removeButton.innerHTML = 'Remove';
   removeButton.classList.add('remove-button');
   removeButton.setAttribute('id', `button${newBook.index}`);
-  removeButton.addEventListener('click', removeBookDiv(newBook.index));
+  removeBookDiv(removeButton, newBook.index);
   bookContainer.appendChild(listBook);
   listBook.appendChild(bookDiv);
   bookDiv.append(bookTitle, bookAuthor, removeButton);
@@ -37,7 +37,8 @@ function createNewBookDiv(title, author) {
   bookAuthor.innerHTML = newBook.author;
 }
 
-function removeBookDiv(index) {
+function removeBookDiv(button, index) {
+  button.addEventListener ('click', (event) => {
   const div = document.getElementById(`book${index}`);
   bookContainer.removeChild(div);
   for (let i = 0; i < bookLibrary.length; i++) {
@@ -45,4 +46,5 @@ function removeBookDiv(index) {
       bookLibrary.splice(i,1);
     }
   }
+})
 }
