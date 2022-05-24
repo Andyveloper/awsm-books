@@ -62,7 +62,7 @@ function createNewBookDiv(title, author) {
   const bookAuthor = document.createElement('p');
   const removeButton = document.createElement('button');
   // creating new book
-  const newBook = new Book(title, author, Date.now());
+  const newBook = new Book(`"${title}"`, `By ${author}`, Date.now());
   library.add(newBook);
   // settings html elements
   listBook.setAttribute('id', `book${newBook.index}`);
