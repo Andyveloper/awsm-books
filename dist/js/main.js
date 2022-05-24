@@ -38,7 +38,6 @@ function createNewBookDiv(title, author) {
   bookDiv.append(bookTitle, bookAuthor, removeButton);
   bookTitle.innerHTML = newBook.title;
   bookAuthor.innerHTML = newBook.author;
-  // populateData();
 }
 
 function removeBookDiv(button, index) {
@@ -54,20 +53,17 @@ function removeBookDiv(button, index) {
 }
 
 const storagedData = () => {
-  localStorage.setItem('data', JSON.stringify(bookLibrary))
+  localStorage.setItem('bookInfo', JSON.stringify(bookLibrary))
 }
 
 const populateData = () => {
-  let whatever = JSON.parse(localStorage.getItem('data'));
-    // bookLibrary = saved;
-    for(let i = 0; i < bookLibrary.length; i++) {
-      createNewBookDiv(bookLibrary[i].title, bookLibrary[i].author)
-    }
-
-    
+  const getBookInfo = JSON.parse(localStorage.getItem('bookInfo'));
+  if (getBookInfo) {
+  for (let i = 0; i < getBookInfo.length; i++) {
+    bookLibrary[i] = getBookInfo[i];
+    createNewBookDiv(bookLibrary[i].title, bookLibrary[i].author);
+  }
+}
 }
 
-
 populateData();
-
-// storagedData();
