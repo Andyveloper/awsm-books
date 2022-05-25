@@ -1,4 +1,5 @@
 .contact {
+  @include page-padding;
   @include flex-column;
   &__title {
     @include section-title;

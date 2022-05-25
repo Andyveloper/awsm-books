@@ -3,6 +3,7 @@
 }
 
 .add-book {
+  padding-top: 10%;
   &__title {
     @include flex-column;
 

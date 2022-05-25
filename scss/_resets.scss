@@ -9,7 +9,7 @@
 a {
   text-decoration: none;
   color: $secondary-color;
-  @include unhover
+  @include unhover;
   &:hover {
     @include hover-transition;
   }

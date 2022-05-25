@@ -50,6 +50,7 @@ li {
   -ms-grid-rows: auto;
       grid-template-rows: auto;
   gap: 0.5rem;
+  padding-bottom: 10%;
 }
 
 @media (max-width: 900px) {
@@ -142,6 +143,10 @@ li {
   border-radius: 3px;
 }
 
+.add-book {
+  padding-top: 10%;
+}
+
 .add-book__title {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -217,6 +222,7 @@ li {
 }
 
 .contact {
+  padding: 10% 10% 3rem 10%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -273,6 +279,7 @@ li {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  top: 0;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
@@ -371,7 +378,7 @@ body {
           align-items: center;
   padding: 0 10%;
   margin-top: auto;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
