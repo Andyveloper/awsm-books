@@ -44,8 +44,8 @@ function removeBookDiv(button, index) {
   });
 }
 
-// Create a new book and book div
-function createNewBookDiv(title, author) {
+// Create a new book div
+function createNewBookDiv(title, author, index) {
   // creating html elements
   const listBook = document.createElement('li');
   const bookDiv = document.createElement('div');
@@ -53,18 +53,12 @@ function createNewBookDiv(title, author) {
   const bookTitle = document.createElement('p');
   const bookAuthor = document.createElement('p');
   const removeButton = document.createElement('button');
-  // creating new book
-  const newBook = {};
-  newBook.title = title;
-  newBook.author = author;
-  newBook.index = Date.now();
-  library.add(newBook);
   // settings html elements
-  listBook.setAttribute('id', `book${newBook.index}`);
+  listBook.setAttribute('id', `book${index}`);
   removeButton.innerHTML = 'Remove';
   removeButton.classList.add('remove-button');
-  removeButton.setAttribute('id', `button${newBook.index}`);
-  removeBookDiv(removeButton, newBook.index);
+  removeButton.setAttribute('id', `button${index}`);
+  removeBookDiv(removeButton, index);
   bookContainer.appendChild(listBook);
   listBook.append(bookContentDiv, bookDiv);
   bookContentDiv.append(bookTitle, bookAuthor);
@@ -72,13 +66,24 @@ function createNewBookDiv(title, author) {
   bookDiv.append(removeButton);
   bookTitle.classList.add('book-list__title');
   bookDiv.classList.add('btn-div');
-  bookTitle.innerHTML = newBook.title;
-  bookAuthor.innerHTML = newBook.author;
+  bookTitle.innerHTML = title;
+  bookAuthor.innerHTML = author;
+}
+
+// Create a new book
+function createNewBook() {
+    const newBook = {};
+    newBook.title = title.value;
+    newBook.author = author.value;
+    newBook.index = Date.now();
+    library.add(newBook);
+    return newBook;
 }
 
 // submit button function
 submitBtn.addEventListener('click', () => {
-  createNewBookDiv(`"${title.value}"\xa0\xa0\xa0`, `By ${author.value}`);
+  const newBook = createNewBook();
+  createNewBookDiv(`"${newBook.title}"\xa0\xa0\xa0`, `By ${newBook.author}`, newBook.index);
   storagedData();
 });
 
@@ -87,8 +92,8 @@ const populateData = () => {
   const getBookInfo = JSON.parse(localStorage.getItem('bookInfo'));
   if (getBookInfo) {
     for (let i = 0; i < getBookInfo.length; i += 1) {
-      library.books[i] = getBookInfo[i];
-      createNewBookDiv(library.books[i].title, library.books[i].author);
+      library.books.push(getBookInfo[i]);
+      createNewBookDiv(`"${library.books[i].title}"\xa0\xa0\xa0`, `By ${library.books[i].author}`, library.books[i].index);
     }
   }
 };
