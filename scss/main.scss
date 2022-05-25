@@ -5,22 +5,29 @@
 @import 'fonts';
 @import 'add-book';
 @import 'breakpoints';
+@import 'display';
+@import 'contact';
 
 .hero {
   background-color: $white;
   position: fixed;
   width: 100%;
+  display: flex;
+  justify-content: flex-end;
 
   @include unhover;
 
   .hero__title {
     @include flex-column;
 
-    width: 100%;
-    padding: 2rem;
+    width: 60%;
+    padding: 1rem;
     font-family: 'Lato-regular', sans-serif;
     color: $secondary-color;
-    font-size: 3rem;
+    font-size: 2rem;
+    margin-right: auto;
+    align-items: flex-start;
+    margin-left: 10%;
 
     @include for-laptop {
       padding: 1rem;
@@ -41,4 +48,36 @@ body {
 
   background-color: transparentize($color: $secondary-color, $amount: 0.5);
   background-blend-mode: soft-light;
+}
+
+.navbar {
+  @include flex-column;
+  margin-right: 10%;
+  width: 100%;
+  align-items: flex-end;
+  font-family: 'Lato-regular', sans-serif;
+  .navbar-list__items {
+    display: inline-block;
+    padding: 0 1rem;
+  }
+}
+
+.footer {
+  font-family: 'Lato-regular', sans-serif;
+  @include flex-row;
+  padding: 0 10%;
+  margin-top: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $white;
+  &__copyright {
+    width: 60%;
+    padding: 2% 0;
+  }
+  &__text {
+    width: 100%;
+    padding: 2% 0;
+  }
 }

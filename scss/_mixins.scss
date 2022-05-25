@@ -44,3 +44,11 @@
   border: none;
   border-radius: 0.5rem;
 }
+
+@mixin section-title {
+  width: 100%;
+  padding: 2rem;
+  font-family: 'Lato-regular', sans-serif;
+  color: $white;
+  font-size: 3rem;
+}

@@ -10,12 +10,19 @@
 <body>
   <header class="hero">
     <h1 class="hero__title">AWSM BOOKS</h1>
+    <nav class="navbar">
+      <ul class="navbar-list">
+        <li class="navbar-list__items"><a href="#">List</a></li>
+        <li class="navbar-list__items"><a href="#">Add New</a></li>
+        <li class="navbar-list__items"><a href="#">Contact</a></li>
+      </ul>
+    </nav>
   </header>
   <main>
     <section class="book-list">
       <ul class="book-list__container"></ul>
     </section>
-    <section class="add-book">
+    <section class="add-book hideAll">
       <hr class="divider">
       <h2 class="add-book__title">ADD A NEW BOOK</h2>
       <form action="a" class="add-book__add-form">
@@ -24,8 +31,21 @@
         <button id="book-submit" type="button">Add New Book</button>
       </form>
     </section>
+    <section class="contact hideAll">
+      <h2 class="contact__title">Contact Information</h2>
+      <p class="contact__text">Do you have any questions, or you want to sae 'Hello'? <br>You can reach out to us!
+        <ul class="contact__text-list">
+          <li class="contact__text-list__item">our Email info@awsmbooks.com</li>
+          <li class="contact__text-list__item">Our Phone Number is +1 965 8745</li>
+          <li class="contact__text-list__item">Our Address 5896 S Land Park Dr, Sacramento, CA, 95822</li>
+        </ul>
+      </p>
+    </section>
   </main>
-  <footer></footer>
+  <footer class="footer">
+    <h4 class="footer__copyright">	<span>&copy;</span> 2022 AWSM BOOKS. <br>Some Rights Reserved</h4>
+    <p class="footer__text">The information provided by AWSM BOOKS, LLC("we," "us," or "our") on awsmbooks.com ("Site") is for general informational purposes only.</p>
+  </footer>
 
   <script src="./js/main.js"></script>
 </body>
