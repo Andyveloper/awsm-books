@@ -98,3 +98,33 @@ const populateData = () => {
   }
 };
 populateData();
+
+const navBarAnchors = document.getElementsByClassName('navbar-list__items');
+const bookSection = document.getElementsByClassName('book-list');
+const addBookSection = document.getElementsByClassName('add-book');
+const contactSection = document.getElementsByClassName('contact');
+function showContent(position) {
+  if (position == 0) {
+    if (bookSection[0].classList.contains('hideAll')) {
+      bookSection[0].classList.remove('hideAll');
+      addBookSection[0].classList.add('hideAll');
+      contactSection[0].classList.add('hideAll');
+    }
+  } else if (position == 1) {
+    if (bookSection[0].classList.contains('hideAll')) {
+      bookSection[0].classList.add('hideAll');
+      addBookSection[0].classList.remove('hideAll');
+      contactSection[0].classList.add('hideAll');
+    }
+  } else if (position == 2) {
+    if (bookSection[0].classList.contains('hideAll')) {
+      bookSection[0].classList.add('hideAll');
+      addBookSection[0].classList.add('hideAll');
+      contactSection[0].classList.remove('hideAll');
+    }
+  }
+}
+for (let i = 0; i < navBarAnchors.length; i += 1 ) {
+  navBarAnchors[i].addEventListener('click', showContent(i));
+}
+
