@@ -1,7 +1,7 @@
 @import 'mixins';
 
 .book-list {
-  font-family: 'Lato-regular';
+  font-family: 'Lato-regular', sans-serif;
 
   @include flex-column;
 

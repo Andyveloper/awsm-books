@@ -7,7 +7,6 @@
 @import 'breakpoints';
 
 .hero {
-  padding: auto;
   background-color: $white;
   position: fixed;
   width: 100%;
@@ -19,7 +18,7 @@
 
     width: 100%;
     padding: 2rem;
-    font-family: 'Lato-regular';
+    font-family: 'Lato-regular', sans-serif;
     color: $secondary-color;
     font-size: 3rem;
 
