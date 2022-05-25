@@ -1,0 +1,62 @@
+@import 'mixins';
+
+.book-list {
+  font-family: 'Lato-regular', sans-serif;
+
+  @include flex-column;
+
+  width: 100%;
+  padding: 10% 10% 3rem 10%;
+
+  &__container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 0.5rem;
+
+    li {
+      display: flex;
+      padding: 2rem 0;
+      border: 4px solid transparentize(mix($secondary-color, blue), 0.3);
+      border-radius: 1rem;
+      background: scroll $primary-color;
+
+      @include unhover;
+
+      &:hover {
+        transform: scale(1.1);
+
+        @include hover-transition;
+      }
+
+      .book-content {
+        display: inline-flex;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+        color: set-text-color($primary-color);
+        margin-right: auto;
+
+        .book-list__title {
+          margin: 0 0.5rem 0 1rem;
+        }
+      }
+
+      .btn-div {
+        display: flex;
+        align-items: center;
+        margin: 0 1rem;
+
+        .remove-button {
+          @include button-std;
+          @include hover-transition;
+        }
+
+        .remove-button:hover {
+          @include unhover;
+        }
+      }
+    }
+  }
+}

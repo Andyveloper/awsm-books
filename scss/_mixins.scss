@@ -1,0 +1,46 @@
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin responsive-bg {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+// Hover into orange
+@mixin hover-transition {
+  transition: all 0.5s ease;
+  color: $primary-color-dark;
+}
+
+// Unhover element
+@mixin unhover {
+  transition: all 0.2s ease;
+}
+
+@mixin divider {
+  border: 3px solid $primary-color-dark;
+  width: 30rem;
+  margin: 1rem auto 3rem auto;
+  border-radius: 3px;
+}
+
+@mixin button-std {
+  padding: 9px;
+  align-items: center;
+  background-color: $white;
+  border: none;
+  border-radius: 0.5rem;
+}
