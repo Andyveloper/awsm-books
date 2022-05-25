@@ -3,15 +3,11 @@
 }
 
 .add-book {
+  padding-top: 10%;
+
   &__title {
     @include flex-column;
-
-    width: 100%;
-    padding: 2rem;
-    font-family: 'Lato-regular', sans-serif;
-    color: $white;
-    font-size: 3rem;
-
+    @include section-title;
     @include unhover;
 
     &:hover {

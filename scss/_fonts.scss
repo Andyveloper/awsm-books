@@ -7,3 +7,7 @@
   font-family: 'Lato-bold';
   src: url(../fonts/Lato/lato-v23-latin-700.woff2);
 }
+
+@mixin webfont {
+  font-family: 'Lato-regular', sans-serif;
+}

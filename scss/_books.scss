@@ -1,4 +1,5 @@
 @import 'mixins';
+@import 'breakpoints';
 
 .book-list {
   font-family: 'Lato-regular', sans-serif;
@@ -6,7 +7,8 @@
   @include flex-column;
 
   width: 100%;
-  padding: 10% 10% 3rem 10%;
+
+  @include page-padding;
 
   &__container {
     display: grid;
@@ -14,6 +16,11 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     gap: 0.5rem;
+    padding-bottom: 10%;
+
+    @include for-phone-only {
+      padding-top: 15%;
+    }
 
     li {
       display: flex;
