@@ -213,7 +213,7 @@ li {
 }
 
 .hideAll {
-  display: none;
+  display: none !important;
 }
 
 .contact {
