@@ -50,6 +50,11 @@
 
         .remove-button {
           @include button-std;
+          @include hover-transition;
+        }
+
+        .remove-button:hover {
+          @include unhover;
         }
       }
     }
