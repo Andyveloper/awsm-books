@@ -4,11 +4,10 @@
 
 .add-book {
   padding-top: 10%;
+
   &__title {
     @include flex-column;
-
     @include section-title;
-
     @include unhover;
 
     &:hover {

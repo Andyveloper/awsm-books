@@ -53,10 +53,12 @@ body {
 
 .navbar {
   @include flex-column;
+
   margin-right: 10%;
   width: 100%;
   align-items: flex-end;
   font-family: 'Lato-regular', sans-serif;
+
   .navbar-list__items {
     display: inline-block;
     padding: 0 1rem;
@@ -65,7 +67,9 @@ body {
 
 .footer {
   font-family: 'Lato-regular', sans-serif;
+
   @include flex-row;
+
   padding: 0 10%;
   margin-top: auto;
   position: fixed;
@@ -73,10 +77,12 @@ body {
   left: 0;
   right: 0;
   background-color: $white;
+
   &__copyright {
     width: 60%;
     padding: 2% 0;
   }
+
   &__text {
     width: 100%;
     padding: 2% 0;

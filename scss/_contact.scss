@@ -1,24 +1,32 @@
 .contact {
   @include page-padding;
   @include flex-column;
+
   &__title {
     @include section-title;
+
     text-align: center;
     text-shadow: 0 2px 2px black;
-    font-size: 4.5rem
+    font-size: 4.5rem;
   }
+
   &__text {
     @include webfont;
+
     font-size: 2.5rem;
     color: $white;
     text-shadow: 0 2px 2px black;
+
     &-list {
       text-shadow: 0 2px 2px black;
       padding-top: 1rem;
       padding-left: 7rem;
+
       &__item {
         list-style: circle;
+
         @include webfont;
+
         color: $white;
         font-size: 2.5rem;
       }

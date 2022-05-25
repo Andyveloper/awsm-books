@@ -7,8 +7,9 @@
   @include flex-column;
 
   width: 100%;
+
   @include page-padding;
-  
+
   &__container {
     display: grid;
     width: 100%;
@@ -16,6 +17,7 @@
     grid-template-rows: auto;
     gap: 0.5rem;
     padding-bottom: 10%;
+
     @include for-phone-only {
       padding-top: 15%;
     }

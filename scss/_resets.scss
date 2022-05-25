@@ -1,5 +1,6 @@
 @import 'color';
 @import 'mixins';
+
 * {
   padding: 0;
   margin: 0;
@@ -9,7 +10,9 @@
 a {
   text-decoration: none;
   color: $secondary-color;
+
   @include unhover;
+
   &:hover {
     @include hover-transition;
   }
