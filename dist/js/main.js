@@ -72,12 +72,12 @@ function createNewBookDiv(title, author, index) {
 
 // Create a new book
 function createNewBook() {
-    const newBook = {};
-    newBook.title = title.value;
-    newBook.author = author.value;
-    newBook.index = Date.now();
-    library.add(newBook);
-    return newBook;
+  const newBook = {};
+  newBook.title = title.value;
+  newBook.author = author.value;
+  newBook.index = Date.now();
+  library.add(newBook);
+  return newBook;
 }
 
 // submit button function
